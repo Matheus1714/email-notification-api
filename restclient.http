@@ -1,0 +1,13 @@
+@base_url = http://localhost:8081
+
+###
+
+POST {{base_url}}/
+Content-Type: application/json
+
+{
+  "from": "matheussilvamartins1714@gmail.com",
+  "to": "matheussilvamartins1714@gmail.com",
+  "subject": "Matheus Mota",
+  "text": "teste"
+}
