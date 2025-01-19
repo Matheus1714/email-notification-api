@@ -1,0 +1,23 @@
+{
+	"name": "email-notification-api",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"start": "NODE_PATH=./build node build/index.js",
+		"build": "tsc -p .",
+		"dev": "nodemon src/index.ts"
+	},
+	"author": "Matheus Silva Martins Mota",
+	"license": "MIT",
+	"description": "",
+	"dependencies": {
+		"fastify": "^5.2.1"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.7",
+		"@types/nodemon": "^1.19.6",
+		"nodemon": "^3.1.9",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.7.3"
+	}
+}
