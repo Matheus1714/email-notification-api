@@ -23,6 +23,8 @@ fastify.post("/", async function handler (
   return { status: 'Email sent successfully' };
 });
 
+const port = Number(process.env.PORT) || 3000;
+const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
-fastify.listen({ port: Number(process.env.PORT) || 8081 , host: "0.0.0.0" })
+fastify.listen({ port, host })
   .then(() => console.log(`server runnnig on port ${process.env.PORT || 8081}`));
