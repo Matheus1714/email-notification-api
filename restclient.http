@@ -1,5 +1,7 @@
 @base_url = http://localhost:8081
 
+# @base_url = https://email-notification-api-2z3o.onrender.com
+
 ###
 
 POST {{base_url}}/
