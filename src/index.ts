@@ -23,6 +23,13 @@ fastify.post("/", async function handler (
   return { status: 'Email sent successfully' };
 });
 
+fastify.get("/", async function handler (
+  request: FastifyRequest,
+  reply: FastifyReply
+) {
+  return { status: 'Alive' };
+});
+
 const port = Number(process.env.PORT) || 8081;
 const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
 
