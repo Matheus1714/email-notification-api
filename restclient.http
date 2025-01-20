@@ -1,4 +1,4 @@
-@base_url = http://localhost:8081
+@base_url = https://email-notification-api-09se.onrender.com
 
 ###
 

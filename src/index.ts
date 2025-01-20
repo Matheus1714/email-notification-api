@@ -1,25 +1,32 @@
 import Fastify, { FastifyReply, FastifyRequest } from "fastify"
 import { transporter } from "./libs/nodemailer";
+import cors from '@fastify/cors'
 
 const fastify = Fastify({
   logger: true
 });
 
+fastify.register(cors, {
+  origin: '*',
+});
+
 interface EmailRequestBody {
   from: string;
   to: string;
+  cc?: string;
   subject: string;
   text: string;
+  html?: string;
 };
 
 fastify.post("/", async function handler (
   request: FastifyRequest<{ Body: EmailRequestBody }>,
   reply: FastifyReply
 ) {
-  const { from, to, subject, text } = request.body;
+  const { from, to, subject, text, cc, html } = request.body;
   
   try {
-    await transporter.sendMail({ from, to, subject, text });
+    await transporter.sendMail({ from, to, subject, text, cc, html });
     return { status: 'Email sent successfully' };
   } catch (error) {
     request.log.error(error); // Loga o erro
