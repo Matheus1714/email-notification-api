@@ -1,13 +1,13 @@
-FROM node:latest
+FROM node:20
 
 WORKDIR /home/node/app
 
-COPY package*.json ./
-
-RUN npm i -g pnpm && pnpm i
-
 COPY . .
+
+RUN npm i
+
+RUN npx tsc
 
 EXPOSE 8081
 
-CMD ["pnpm", "dev"]
+CMD ["node", "./build/index.js"]

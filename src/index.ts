@@ -35,7 +35,7 @@ fastify.get("/", async function handler (
 });
 
 const port = Number(process.env.PORT) || 8081;
-const host = ("RENDER" in process.env) ? `0.0.0.0` : `localhost`;
+const host = "0.0.0.0";
 
 fastify.listen({ port, host })
   .then(() => console.log(`server runnnig on ${host}:${port}`));
