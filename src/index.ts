@@ -18,9 +18,13 @@ fastify.post("/", async function handler (
 ) {
   const { from, to, subject, text } = request.body;
   
-  await transporter.sendMail({ from, to, subject, text });
-
-  return { status: 'Email sent successfully' };
+  try {
+    await transporter.sendMail({ from, to, subject, text });
+    return { status: 'Email sent successfully' };
+  } catch (error) {
+    request.log.error(error); // Loga o erro
+    return reply.status(500).send({ status: 'Failed to send email', error: String(error) });
+  }
 });
 
 fastify.get("/", async function handler (
